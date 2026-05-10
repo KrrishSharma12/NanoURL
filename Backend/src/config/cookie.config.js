@@ -3,5 +3,6 @@ export const cookieOptions={
     secure: true,
     sameSite: "none",
     maxAge: 30 * 60 * 1000,
-    sameSite: 'lax'
+    sameSite: 'lax',
+             path: "/"
         }
