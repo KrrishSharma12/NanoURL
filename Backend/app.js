@@ -38,8 +38,8 @@ app.use("/api/create", shortUrl);
 app.get("/:id", redirectFromShortUrl)
 
 app.use(errorHandler)
-
+ connectDB();
 app.listen(process.env.PORT || 3000, () => {
-    connectDB();
+
     console.log("Server is running on", process.env.PORT || 3000);
 })
