@@ -11,11 +11,12 @@ import { errorHandler } from './src/utils/errorHandler.js';
 import cookieParser from 'cookie-parser';
 import { attachUser } from './src/utils/attachUser.js';
 
-dotenv.config("./.env");
+dotenv.config({ path: "./.env" });
 const app = express();
 
 app.use(cors({
     origin: process.env.FRONTEND_URL || "https://snipl.vercel.app",
+  
     credentials: true,
 }))
 app.options(/.*/, cors());
@@ -24,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(attachUser)
 
-app.get('/',(req,res)=>{
+app.get('/api/health',(req,res)=>{
     res.send('Backend is running successfully')
 })
 
@@ -40,8 +41,8 @@ app.get("/:id", redirectFromShortUrl)
 
 app.use(errorHandler)
  connectDB();
-// app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 
-//     console.log("Server is running on", process.env.PORT || 3000);
-// })
+    console.log("Server is running on", process.env.PORT || 3000);
+})
 export default app;
