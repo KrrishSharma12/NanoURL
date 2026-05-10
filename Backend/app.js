@@ -18,6 +18,7 @@ app.use(cors({
     origin: process.env.FRONTEND_URL || "https://snipl.vercel.app",
     credentials: true,
 }))
+app.options(/.*/, cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
