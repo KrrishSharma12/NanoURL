@@ -15,7 +15,7 @@ dotenv.config("./.env");
 const app = express();
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "https://snipl.vercel.app",
     credentials: true,
 }))
 app.use(express.json());
