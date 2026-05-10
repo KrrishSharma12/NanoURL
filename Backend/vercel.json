@@ -11,5 +11,13 @@
       "src": "/(.*)",
       "dest": "app.js"
     }
+  ],
+  {
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://trimiz.vercel.app/api/$1"
+    }
   ]
+}
 }
