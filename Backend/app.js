@@ -23,6 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(attachUser)
 
+app.get('/',(req,res)=>{
+    res.send('Backend is running successfully')
+})
+
 app.use('/api/user', user_route)
 //Create Authentication
 app.use("/api/auth", auth_routes);
