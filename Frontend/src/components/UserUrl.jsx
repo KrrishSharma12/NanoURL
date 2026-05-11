@@ -11,7 +11,7 @@ const UserUrl = () => {
     const [copiedId, setCopiedId] = useState(null);
 
     const handleCopy = async (shortUrl, id) => {
-        await navigator.clipboard.writeText(`http://localhost:3000/${shortUrl}`);
+        await navigator.clipboard.writeText(`${import.meta.env.VITE_BACKEND_URL}/${shortUrl}`);
         setCopiedId(id);
         setTimeout(() => setCopiedId(null), 2000);
     };
@@ -67,10 +67,10 @@ const UserUrl = () => {
                         {/* Short URL */}
                         <div className="break-all font-medium text-blue-600" >
                             <a
-                                href={`http://localhost:3000/${url.short_url}`}
+                                href={`${import.meta.env.VITE_BACKEND_URL}/${url.short_url}`}
                                 target="_blank" rel="noopener noreferrer"
                             >
-                                {`http://localhost:3000/${url.short_url}`}
+                                {`${import.meta.env.VITE_BACKEND_URL}/${url.short_url}`}
                             </a>
                         </div>
 
